@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>LaterGram</h1>
+    <div class="container">
+        <div class="row" id="feed">
+            <!-- <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+    <div id="feed">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var sd = [{
+            "first_name": "Stim",
+            "last_name": "Keicher",
+            "email": "stikkeicher@gmail.com",
+            "avatar": "https://imgproxy.geocaching.com/eeaff6fbc9c1413ceeb7e56469c4d52e6229b984?url=http%3A%2F%2Fimg.auctiva.com%2Fimgdata%2F1%2F4%2F6%2F4%2F8%2F6%2F6%2Fwebimg%2F612252607_o.jpg",
+            "job": "doctor",
+            "salary": 3000
+        }, {
+            "first_name": "Kate",
+            "last_name": "Rachard",
+            "email": "katera167@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkiCtR7OPd-BuhGhCirK5wi9pzfNeds6W50A&usqp=CAU",
+            "job": "Lawer",
+            "salary": 1000
+
+        }, {
+            "first_name": "Nikos",
+            "last_name": "Papadakis",
+            "email": "NikPapda123@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyloL1TdPf2Co5VQrOQBS2I4fsi6ZwXGE18w&usqp=CAU",
+            "job": "Farmer",
+            "salary": 900
+        }, {
+            "first_name": "Eva",
+            "last_name": "Zacharioudaki",
+            "email": "evazach123@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA9r0ailX3-fXZUQe22zxn_NT4VZH95z050Q&usqp=CAU",
+            "job": "Rehearcher",
+            "salary": 2100
+        }, {
+            "first_name": "Ilias",
+            "last_name": "Papadopoulos",
+            "email": "ilipapad178@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA9qSHIuvfdkKpXJZGHHvy1Zgho5LIis3ELA&usqp=CAU",
+            "job": "Electrician",
+            "salary": 700
+        }, {
+            "first_name": "Mike",
+            "last_name": "Karamitsou",
+            "email": "mikekaramitsou178@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlQgSzuY5qsGNhVFFvQQZ4O2BtfVW4GSE0lw&usqp=CAU",
+            "job": "office employer",
+            "salary": 750
+        }
+        ];
+
+        var createPost = (p) => ` <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="${p.avatar}" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title">${p.first_name} ${p.last_name}</h5>
+                        <a href="#" class="btn ${p.salary > 2000 ? 'btn-danger' : 'btn-light'}">${p.salary}</a>
+                    </div>
+                </div>
+            </div>` ;
+
+        var createPosts = posts => {
+            posts.forEach(p => {
+                document.querySelector('#feed').innerHTML += createPost(p);
+            })
+        }
+        var search = (data, q) => {
+            q=q.toLowerCase();
+            return data.filter(d => {
+                return d.first_name.toLowerCase().includes(q) || d.last_name.toLowerCase().includes(q) || d.email.toLowerCase().includes(q)
+
+            })
+
+        }
+        createPosts(sd);
+        search(sd, 'Ilias');
+       
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

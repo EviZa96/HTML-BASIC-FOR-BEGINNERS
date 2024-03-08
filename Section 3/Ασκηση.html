@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ασκηση</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Blog</h1>
+    <div id="arthra">
+        <!-- <div class="arhtro">
+            <img src="http://dummyimage.com/300x300.jpg/5fa2dd/ffffff" alt="">
+            <h2>Stim</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, inventore quisquam error qui ipsum ea nostrum corrupti fugit, facilis nam iusto ipsam voluptas numquam impedit aut modi cupiditate quod esse.</p>
+            <button>80</button>
+        </div> -->
+    </div>
+    <script>
+
+        var serverData = [{
+            "titlos": "Stim",
+            "media": "http://dummyimage.com/300x300.jpg/5fa2dd/ffffff",
+            "keimeno": "donec ut dolor morbi",
+            "likes": 805
+        }, {
+            "titlos": "Vagram",
+            "media": "http://dummyimage.com/300x300.jpg/5fa2dd/ffffff",
+            "keimeno": "montes nascetur ridiculus mus vivamus",
+            "likes": 503
+        }, {
+            "titlos": "Konklab",
+            "media": "http://dummyimage.com/300x300.jpg/dddddd/000000",
+            "keimeno": "at nunc commodo placerat praesent",
+            "likes": 27
+        }, {
+            "titlos": "It",
+            "media": "http://dummyimage.com/300x300.jpg/cc0000/ffffff",
+            "keimeno": "id nulla ultrices aliquet maecenas leo odio condimentum id",
+            "likes": 711
+        }, {
+            "titlos": "Bitwolf",
+            "media": "http://dummyimage.com/300x300.jpg/5fa2dd/ffffff",
+            "keimeno": "magnis dis parturient montes",
+            "likes": 68
+        }];
+
+        // function isTrending(b,type){
+        //     var red='';
+        //     var prothema='';
+        //     if(b.likes>500){
+        //         red='red';
+        //         prothema='Trending';
+
+        //     }
+        //     if(type=='color'){
+        //         return red;
+        //     }
+        //     else if(type=='prefix'){
+        //         return prothema;
+        //     }
+        // }
+        function dhmiourgiaArhtrou(a) {
+            var red = '';
+            var prothema = '';
+            if (a.likes > 500) {
+                red = 'red';
+                prothema = 'Trending';
+
+            }
+            var html = ' <div class="arthro"><img src="' + a.media + '" alt=""><h2 class="' + red + '">' + prothema + a.titlos + '</h2><p>' + a.keimeno + '</p><button>' + a.likes + '</button></div>';
+            // var html = ' <div class="arthro"><img src="' + a.media + '" alt=""><h2 class="' + isTrending(a,'color')+ '">' + isTrending(a,'prefix') + a.titlos + '</h2><p>' + a.keimeno + '</p><button>' + a.likes + '</button></div>';
+            return html;
+        }
+
+        function arthra(arthra) {
+            document.querySelector('#arthra').innerHTML = '';
+            for (a of arthra) {
+                document.querySelector('#arthra').innerHTML += dhmiourgiaArhtrou(a);
+            }
+        }
+        arthra(serverData);
+    </script>
+</body>
+
+</html>

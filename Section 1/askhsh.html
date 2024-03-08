@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASKHSH ME JSON</title>
+    <style>
+        .product {
+            width: 200px;
+            padding: 1rem;
+            margin: 1rem auto;
+            border-radius: 0.75rem;
+            border: 1px solid #ccc;
+        }
+
+        .product img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .product h2 {
+            color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BLOG</h1>
+    <div id="products">
+
+
+    </div>
+
+    <script>
+        var products = [{
+            "name": "hero Product",
+            "detail": "mia waraia petalouda",
+            "price": "99",
+            "info": "OMG This just came out today!",
+            "image": "http://placehold.it/940x300/999/CCC"
+        }, {
+            "name": "Product 1",
+            "detail": "mes ston kampo mia fora",
+            "price": "17",
+            "info": "This is the latest and greatest product from Derp corp.",
+            "image": "http://placehold.it/300x300/999/CCC"
+        }, {
+            "name": "Product 2",
+            "detail": "mia vraia barkoula",
+            "price": "12",
+            "info": "BOGOF",
+            "image": "http://placehold.it/300x300/999/CCC"
+        }, {
+            "name": "Product 3",
+            "detail": "mes stin trikimia",
+            "price": "150",
+            "info": "tostiera",
+            "image": "http://placehold.it/300x300/999/CCC"
+        }, {
+            "name": "Product 4",
+            "detail": "tralalalal",
+            "price": "89",
+            "info": "No srsly GTFO",
+            "image": "http://placehold.it/300x300/999/CCC"
+        }, {
+            "name": "Product 5",
+            "detail": "Lorem ipsum dolor sit amet",
+            "price": "7",
+            "info": "sdjsjdskjdskjdks",
+            "image": "http://placehold.it/300x300/999/CCC"
+        }, {
+            "name": "Product 6",
+            "detail": "mia kokkinoskoufitsa",
+            "price": "100",
+            "info": "This is the latest and greatest product from Derp corp.",
+            "image": "http://placehold.it/300x300/999/CCC"
+        }];
+
+        // console.log(products);
+        var pro = document.querySelector('#products');
+        // pro.innerHTML='ta nea stoixeia';
+
+        // var likes=667;
+        // var titlos='Nuevo titlos';
+        var newClass = 'myproduct';
+        // var p= '<div class="product '+newClass+'"><img src="hmu.png" alt=""><h2>'+titlos+'</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut voluptates ad dolore et dolorum hic ullam. Quam perferendis voluptatem repudiandae. Ducimus et amet, veniam natus magni esse explicabo deleniti quod!</p><button>'+likes+'</button></div>';
+        // pro.innerHTML=p;
+        // pro.innerHTML +=p;
+
+
+        for (var i = 0; i < products.length; i++) {
+            console.log(products[i]);
+            var html = '<div class="product ' + newClass + '"><img src="' + products[i].image + ' alt=""><h2 id="demo">' + products[i].detail + '</h2><p>' + products[i].info + '</p><button>' + products[i].price + '</button></div>';
+            //console.log(html);
+            pro.innerHTML += html;
+            if (products[i].price > 90) {
+
+                var t = 'TRENDING';
+                var stringheading = t + " " + products[i].detail;
+                document.getElementById("demo").innerHTML = stringheading;
+                document.getElementById("demo").style.color = "red";
+                console.log(products[i].detail);
+                console.log(i);
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Known Function</h1>
+    <script>
+
+var serverData = [{
+            "titlos": "Stim",
+            "media": "http://dummyimage.com/300x300.jpg/5fa2dd/ffffff",
+            "keimeno": "donec ut dolor morbi",
+            "likes": 805
+        }, {
+            "titlos": "Vagram",
+            "media": "http://dummyimage.com/300x300.jpg/5fa2dd/ffffff",
+            "keimeno": "montes nascetur ridiculus mus vivamus",
+            "likes": 503
+        }, {
+            "titlos": "Konklab",
+            "media": "http://dummyimage.com/300x300.jpg/dddddd/000000",
+            "keimeno": "at nunc commodo placerat praesent",
+            "likes": 27
+        }, {
+            "titlos": "It",
+            "media": "http://dummyimage.com/300x300.jpg/cc0000/ffffff",
+            "keimeno": "id nulla ultrices aliquet maecenas leo odio condimentum id",
+            "likes": 711
+        }, {
+            "titlos": "Bitwolf",
+            "media": "http://dummyimage.com/300x300.jpg/5fa2dd/ffffff",
+            "keimeno": "magnis dis parturient montes",
+            "likes": 68
+        }];
+        var pinakas=[1,2,3,4,5,6,7,8,9];
+        console.log(pinakas);
+        console.log(pinakas[2]);
+        pinakas.push(18);
+        pinakas.unshift(19);
+        pinakas.push(35);
+        pinakas.includes(2);
+        pinakas.indexOf(5);
+        pinakas.lastIndexOf(2);
+        pinakas.some(function(v,index){
+            console.log(v);
+        })
+        console.log('------------------------');
+        var someCheck=pinakas.some(
+            function(v,index){
+                return v>10;
+            }
+        )
+        console.log(someCheck);
+        console.log('------------------------');
+        var everyCheck=pinakas.every(
+            function (v){
+                return v<15;
+            }
+        )
+        console.log(everyCheck);
+        console.log('------------------------');
+        setTimeout(function(){
+            console.log('hello world');
+        },2000);
+        
+        var timer=setInterval(function(){
+            console.log('bump');
+            var i;
+            if(i<=10){
+                clearInterval(timer);
+            }
+            i++;
+        },3000)
+        
+        console.log(timer);
+
+        var parsed=JSON.stringify(serverData);
+        var obj=JSON.parse(parsed);
+
+
+    </script>
+</body>
+</html>

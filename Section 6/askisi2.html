@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <h1>Employees</h1>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Employees</a>
+            <div class="d-flex">
+                <input class="form-control me-2" id="search" type="search" placeholder="π.χ John Doe"
+                    aria-label="Search">
+                <button class="btn btn-outline-success" id="search-btn" type="submit">Search</button>
+            </div>
+            <div class="d-flex">
+                <input class="form-control me-2" id="searchs" type="search" placeholder="π.χ 1200" aria-label="Search">
+                <button class="btn btn-outline-success" id="searchs-btn" type="submit">Sallary</button>
+                <button class="btn btn-outline-warning" id="reset-btn" type="submit">Reset</button>
+                <button class="btn btn-outline-light" id="ascending" type="submit">Asc</button>
+                <button class="btn btn-outline-light" id="descending" type="submit">Desc</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row" id="employees">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="http://dummyimage.com/300x300.jpg/5fa2dd/ffffff" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var serverData = [{
+            "first_name": "Stim",
+            "last_name": "Keicher",
+            "email": "stikkeicher@gmail.com",
+            "avatar": "https://imgproxy.geocaching.com/eeaff6fbc9c1413ceeb7e56469c4d52e6229b984?url=http%3A%2F%2Fimg.auctiva.com%2Fimgdata%2F1%2F4%2F6%2F4%2F8%2F6%2F6%2Fwebimg%2F612252607_o.jpg",
+            "job": "doctor",
+            "salary": 2000
+        }, {
+            "first_name": "Kate",
+            "last_name": "Rachard",
+            "email": "katera167@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkiCtR7OPd-BuhGhCirK5wi9pzfNeds6W50A&usqp=CAU",
+            "job": "Lawer",
+            "salary": 1000
+
+        }, {
+            "first_name": "Nikos",
+            "last_name": "Papadakis",
+            "email": "NikPapda123@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyloL1TdPf2Co5VQrOQBS2I4fsi6ZwXGE18w&usqp=CAU",
+            "job": "Farmer",
+            "salary": 900
+        }, {
+            "first_name": "Eva",
+            "last_name": "Zacharioudaki",
+            "email": "evazach123@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA9r0ailX3-fXZUQe22zxn_NT4VZH95z050Q&usqp=CAU",
+            "job": "Rehearcher",
+            "salary": 2100
+        }, {
+            "first_name": "Ilias",
+            "last_name": "Papadopoulos",
+            "email": "ilipapad178@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA9qSHIuvfdkKpXJZGHHvy1Zgho5LIis3ELA&usqp=CAU",
+            "job": "Electrician",
+            "salary": 700
+        }, {
+            "first_name": "Mike",
+            "last_name": "Karamitsou",
+            "email": "mikekaramitsou178@gmail.com",
+            "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlQgSzuY5qsGNhVFFvQQZ4O2BtfVW4GSE0lw&usqp=CAU",
+            "job": "office employer",
+            "salary": 750
+        }
+        ];
+
+        function sorting(order){
+
+            if(order=='ascending'){
+                serverData.sort(function(a,b){return a.salary-b.salary});
+            }else if(order=='descending'){
+                serverData.sort(function(a,b){return b.salary-a.salary});
+            }
+        }
+        function searchSallary(data, query, comparison) {
+            var apotelesmata = [];
+            for (d of data) {
+
+                if (comparison == '<' && parseFloat(d.salary) < parseFloat(query)) {
+                    apotelesmata.push(d);
+                }
+
+                if (comparison == '>' && parseFloat(d.salary) > parseFloat(query)) {
+                    apotelesmata.push(d);
+                }
+
+                if (comparison == '=' && parseFloat(d.salary) == parseFloat(query)) {
+                    apotelesmata.push(d);
+                }
+
+            }
+            return apotelesmata;
+
+        }
+        function search(data, query) {
+            var apotelesmata = [];
+            query = query.toLowerCase();
+            for (d of data) {
+                if (d.first_name.includes(query) || d.last_name.includes(query) || d.job.includes(query)) {
+                    apotelesmata.push(d);
+                }
+
+            }
+            return apotelesmata;
+        }
+
+        function createCard(e) {
+            // var card = '<div class="col"><div class="card" style="width: 18rem;"><img src="' + e.avatar + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + e.first_name + ' ' + e.last_name + '</h5></div><ul class="list-group list-group-flush"><li class="list-group-item">' + e.email + '</li><li class="list-group-item">' + e.job + '</li><li class="list-group-item">' + e.salary + '</li></ul></div></div>';
+            var card=`<div class="col"><div class="card" style="width: 18rem;"><img src="${e.avatar}" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">${e.first_name} ${e.last_name}</h5></div><ul class="list-group list-group-flush"><li class="list-group-item">${e.email}</li><li class="list-group-item">${e.job}</li><li class="list-group-item">${e.salary}</li></ul></div></div>`;
+            return card;
+        }
+        function init(data, target) {
+            document.querySelector(target).innerHTML = '';
+            for (e of data) {
+                document.querySelector(target).innerHTML += createCard(e);
+
+            }
+        }
+        init(serverData, '#employees');
+        // -------------event listeners-------------//
+        document.querySelector('#search').addEventListener('keydown', function (e) {
+
+            if (e.keyCode == 13) {
+                init(search(serverData, e.target.value), '#employees');
+            }
+        })
+        document.querySelector('#search-btn').addEventListener('click', function (e) {
+            init(search(serverData, document.querySelector('#search').value), '#employees');
+        })
+
+        document.querySelector('#searchs').addEventListener('keydown', function (e) {
+
+            var comparison='>';
+            if(e.shiftKey){
+                comparison='<';
+            }
+            if(e.ctrlKey){
+                comparison='=';
+            }
+            if (e.keyCode == 13) {
+                var apotelesmata=searchSallary(serverData, e.target.value,comparison);
+                init(apotelesmata, '#employees');
+            }
+        })
+        document.querySelector('#searchs-btn').addEventListener('click', function (e) {
+            var comparison='>';
+            if(e.shiftKey){
+                comparison='<';
+            }
+            if(e.ctrlKey){
+                comparison='=';
+            }
+
+            init(searchSallary(serverData, document.querySelector('#searchs').value,comparison), '#employees');
+        })
+
+        document.querySelector('#reset-btn').addEventListener('click', function (e) {
+            init(serverData, '#employees');
+            document.querySelector('#search').value = '';
+            document.querySelector('#searchs').value = '';
+        })
+        document.querySelector('#ascending').addEventListener('click', function (e) {
+           sorting('ascending');
+           document.querySelector('#reset-btn').click();
+        })
+        document.querySelector('#descending').addEventListener('click', function (e) {
+           sorting('descending');
+           document.querySelector('#reset-btn').click();
+        })
+        
+
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>
